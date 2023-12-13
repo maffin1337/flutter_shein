@@ -9,17 +9,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.purple,
-        )
+          useMaterial3: true,
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: Colors.purple,
+          )
       ),
       home: Scaffold(
         appBar: AppBar(backgroundColor: Theme.of(context).colorScheme.inversePrimary,
             title: const Text('Учебник по языкам программирования',
-        style: TextStyle(
-          fontSize: 18
-        ))),
+                style: TextStyle(
+                    fontSize: 18
+                ))),
         body: const Column(
           children: <Widget>[
             CPlus(),
@@ -34,94 +34,51 @@ class MyApp extends StatelessWidget {
 
 class CPlus extends StatelessWidget {
   const CPlus({super.key});
+  final image = 'Assets/Images/CPlus.png';
+  final TitleText = 'C++';
+  final SubText = 'Начни изучать c++ с нуля.';
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Card(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            ListTile(
-              leading: Image.asset("Assets/Images/CPlus.png", width: 50, height: 50),
-              title: Text('C++'),
-              subtitle: Text('Начни изучать c++ с нуля.'),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                TextButton(
-                  child: const Text('Начать'),
-                  onPressed: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: const Text('Пока что лекции не готовы'),
-                        action: SnackBarAction(
-                          label: 'Закрыть',
-                          onPressed: () {
-                            // Code to execute.
-                          },
-                        ),
-                      ),
-                    );
-                  },
-                ),
-                const SizedBox(width: 8),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
+    return CSLsnguageCard(image: image, titleText: TitleText, subText: SubText,);
   }
 }
 
 class CSharp extends StatelessWidget {
   const CSharp({super.key});
+  final image = 'Assets/Images/CSharp.png';
+  final TitleText = 'C#';
+  final SubText = 'Начни изучать c# с нуля.';
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Card(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            ListTile(
-              leading: Image.asset('Assets/Images/CSharp.png', width: 50, height: 50),
-              title: Text('C#'),
-              subtitle: Text('Начни изучать c# с нуля.'),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                TextButton(
-                  child: const Text('Начать'),
-                  onPressed: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: const Text('Пока что лекции не готовы'),
-                        action: SnackBarAction(
-                          label: 'Закрыть',
-                          onPressed: () {
-                            // Code to execute.
-                          },
-                        ),
-                      ),
-                    );
-                  },
-                ),
-                const SizedBox(width: 8),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
+    return CSLsnguageCard(image: image, titleText: TitleText, subText: SubText,);
   }
 }
 
 class Python extends StatelessWidget {
   const Python({super.key});
+  final image = 'Assets/Images/Python.png';
+  final TitleText = 'Python';
+  final SubText = 'Начни изучать python с нуля.';
+
+  @override
+  Widget build(BuildContext context) {
+    return CSLsnguageCard(image: image, titleText: TitleText, subText: SubText,);
+  }
+}
+
+class CSLsnguageCard extends StatelessWidget {
+  final String image;
+  final String titleText;
+  final String subText;
+
+  const CSLsnguageCard({
+    super.key,
+    required this.image,
+    required this.titleText,
+    required this.subText
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -131,9 +88,9 @@ class Python extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             ListTile(
-              leading: Image.asset('Assets/Images/Python.png', width: 50, height: 50),
-              title: Text('Python'),
-              subtitle: Text('Начни изучать Python с нуля.'),
+              leading: Image.asset(image, width: 50, height: 50),
+              title: Text(titleText),
+              subtitle: Text(subText),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -164,53 +121,6 @@ class Python extends StatelessWidget {
   }
 }
 
-/*
-import 'package:flutter/material.dart';
-
-/// Flutter code sample for [SnackBar].
-
-void main() => runApp(const SnackBarExampleApp());
-
-class SnackBarExampleApp extends StatelessWidget {
-  const SnackBarExampleApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: const Text('SnackBar Sample')),
-        body: const Center(
-          child: SnackBarExample(),
-        ),
-      ),
-    );
-  }
-}
-
-class SnackBarExample extends StatelessWidget {
-  const SnackBarExample({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      child: const Text('Show Snackbar'),
-      onPressed: () {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: const Text('Awesome Snackbar!'),
-            action: SnackBarAction(
-              label: 'Action',
-              onPressed: () {
-                // Code to execute.
-              },
-            ),
-          ),
-        );
-      },
-    );
-  }
-}
- */
 
 
 
