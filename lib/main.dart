@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'masterclass_card.dart';
 import 'news_card.dart';
+import 'participate_screen.dart'; // Import the ParticipateScreen
 
 void main() {
   runApp(MyApp());
@@ -36,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final List<Widget> _screens = [
     NewsScreen(),
     MasterclassesScreen(),
-    ParticipateScreen(),
+    ParticipateScreen(), // Include the ParticipateScreen
   ];
 
   @override
@@ -47,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
         centerTitle: true,
         title: Image.asset(
           'assets/logo.png', // Replace 'assets/logo.png' with the path to your logo image
-          height: 80.0, // Adjust the height as needed
+          height: 40.0,
         ),
       ),
       body: _screens[_currentIndex],
@@ -112,17 +114,29 @@ class NewsScreen extends StatelessWidget {
 class MasterclassesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('Мастер-классы (Masterclasses) Screen'),
+    return ListView(
+      children: [
+        MasterclassCard(
+          title: 'Мастер-класс по современному танцу 10:00',
+          teacherInfo: 'Преподаватель: Богатырева Анастасия',
+          imagePath: 'assets/dance_class.PNG', // Replace with the actual image path
+          onSignUpPressed: () {
+            // Add your sign-up logic or action here
+            print('Signed up for Flutter Masterclass');
+          },
+        ),
+        MasterclassCard(
+          title: 'Мастер-класс "Музыкальный менеджмент" 10:00',
+          teacherInfo: 'Преподаватели: Станислав Топоров, Певица IDA',
+          imagePath: 'assets/music_class.PNG', // Replace with the actual image path
+          onSignUpPressed: () {
+            // Add your sign-up logic or action here
+            print('Signed up for Dart Masterclass');
+          },
+        ),
+        // Add more MasterclassCard widgets as needed
+      ],
     );
   }
 }
 
-class ParticipateScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('Принять участие (Participate) Screen'),
-    );
-  }
-}
