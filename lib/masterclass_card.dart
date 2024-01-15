@@ -12,7 +12,7 @@ class MasterclassesScreen extends StatelessWidget {
           imagePath: 'assets/dance_class.png', // Replace with the actual image path
           onSignUpPressed: () {
             // Add your sign-up logic or action here
-            print('Signed up for Flutter Masterclass');
+            print('Signed up for Dance Masterclass');
           },
         ),
         MasterclassCard(
@@ -21,7 +21,7 @@ class MasterclassesScreen extends StatelessWidget {
           imagePath: 'assets/music_class.png', // Replace with the actual image path
           onSignUpPressed: () {
             // Add your sign-up logic or action here
-            print('Signed up for Dart Masterclass');
+            print('Signed up for Music Masterclass');
           },
         ),
         // Add more MasterclassCard widgets as needed
@@ -47,13 +47,21 @@ class MasterclassCard extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            width: 120.0,
-            height: 150.0,
-            child: Image.asset(
-              imagePath,
-              fit: BoxFit.cover,
-            ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Container(
+                width: 150.0,
+                height: 200,
+                alignment: Alignment.center,
+                child: Image.asset(
+                  imagePath,
+                  width: 120.0,
+                  height: 200.0,
+                ),
+              ),
+            ],
           ),
           Expanded(
             child: Padding(

@@ -11,7 +11,7 @@ class NewsScreen extends StatelessWidget {
           imagePath: 'assets/opening.png', // Replace with the actual image path
           onPressed: () {
             // Add your navigation logic or action here
-            print('Tapped on Flutter News');
+            print('Tapped on Opening News');
           },
         ),
         NewsCard(
@@ -20,7 +20,7 @@ class NewsScreen extends StatelessWidget {
           imagePath: 'assets/dance.png', // Replace with the actual image path
           onPressed: () {
             // Add your navigation logic or action here
-            print('Tapped on Dart News');
+            print('Tapped on Dance Contest News');
           },
         ),
         // Add more NewsCard widgets as needed
