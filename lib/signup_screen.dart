@@ -44,7 +44,7 @@ class SignUpScreen extends StatelessWidget {
                 // Show a SnackBar to indicate successful sign-up
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
-                    content: Text('Запись прошла успешно. Ждем вас на мстер-классе!'),
+                    content: Text('Запись прошла успешно. Ждем вас на мастер-классе!'),
                     backgroundColor: Theme.of(context).primaryColor,
                   ),
                 );

@@ -1,6 +1,35 @@
 import 'package:flutter/material.dart';
 import 'signup_screen.dart';
 
+class MasterclassesScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      children: [
+        MasterclassCard(
+          title: 'Мастер-класс по современному танцу 10:00',
+          teacherInfo: 'Преподаватель: Богатырева Анастасия',
+          imagePath: 'assets/dance_class.png', // Replace with the actual image path
+          onSignUpPressed: () {
+            // Add your sign-up logic or action here
+            print('Signed up for Flutter Masterclass');
+          },
+        ),
+        MasterclassCard(
+          title: 'Мастер-класс "Музыкальный менеджмент" 10:00',
+          teacherInfo: 'Преподаватели: Станислав Топоров, Певица IDA',
+          imagePath: 'assets/music_class.png', // Replace with the actual image path
+          onSignUpPressed: () {
+            // Add your sign-up logic or action here
+            print('Signed up for Dart Masterclass');
+          },
+        ),
+        // Add more MasterclassCard widgets as needed
+      ],
+    );
+  }
+}
+
 class MasterclassCard extends StatelessWidget {
   final String title;
   final String teacherInfo;

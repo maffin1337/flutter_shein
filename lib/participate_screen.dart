@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'participation_form.dart';
 
 class ParticipateScreen extends StatelessWidget {
   @override
@@ -10,26 +11,37 @@ class ParticipateScreen extends StatelessWidget {
         children: [
           ParticipationCard(
             competitionName: 'Танцевальный конкурс',
-            icon: Icons.groups, // Add an icon for the Dance Competition
+            icon: Icons.groups,
             onPressed: () {
-              print('Dance Competition card pressed');
+              navigateToParticipationFormScreen(context, 'Танцевальный конкурс');
             },
           ),
+          SizedBox(height: 16.0),
           ParticipationCard(
             competitionName: 'Вокальный конкурс',
-            icon: Icons.mic, // Add an icon for the Singing Competition
+            icon: Icons.mic,
             onPressed: () {
-              print('Singing Competition card pressed');
+              navigateToParticipationFormScreen(context, 'Вокальный конкурс');
             },
           ),
+          SizedBox(height: 16.0),
           ParticipationCard(
-            competitionName: 'Театральное искусство',
-            icon: Icons.theater_comedy, // Add an icon for the Theatre Competition
+            competitionName: 'Театральное икусство',
+            icon: Icons.theater_comedy,
             onPressed: () {
-              print('Theatre Competition card pressed');
+              navigateToParticipationFormScreen(context, 'Театральное искусство');
             },
           ),
         ],
+      ),
+    );
+  }
+
+  void navigateToParticipationFormScreen(BuildContext context, String competitionName) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ParticipationFormScreen(competitionName: competitionName),
       ),
     );
   }
@@ -52,29 +64,43 @@ class ParticipationCard extends StatelessWidget {
         onTap: onPressed,
         child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: Column(
             children: [
               Icon(
                 icon,
                 color: Theme.of(context).backgroundColor,
                 size: 40.0,
               ),
-              SizedBox(width: 16.0),
-              Expanded(
-                child: Text(
-                  competitionName,
-                  style: TextStyle(
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.bold,
-                    color: Theme.of(context).backgroundColor,
-                  ),
+              SizedBox(height: 16.0),
+              Text(
+                competitionName,
+                style: TextStyle(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.bold,
+                  color: Theme.of(context).backgroundColor,
                 ),
               ),
             ],
           ),
         ),
       ),
+    );
+  }
+}
+
+class ParticipationFormScreen extends StatelessWidget {
+  final String competitionName;
+
+  ParticipationFormScreen({required this.competitionName});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Запись - $competitionName'),
+        backgroundColor: Theme.of(context).primaryColor,
+      ),
+      body: ParticipationForm(),
     );
   }
 }

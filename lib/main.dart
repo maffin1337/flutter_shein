@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Color(0xFFff8b03),
         backgroundColor: Color(0xFF2b2a29),
         scaffoldBackgroundColor: Color(0xFF2b2a29),
+        canvasColor: Color(0xFF2b2a29),
         primarySwatch: Colors.orange,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         textTheme: TextTheme(
@@ -49,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
         centerTitle: true,
         title: Image.asset(
           'assets/logo.png', // Replace 'assets/logo.png' with the path to your logo image
-          height: 40.0,
+          height: 70.0,
         ),
       ),
       body: _screens[_currentIndex],
@@ -78,64 +79,6 @@ class _MyHomePageState extends State<MyHomePage> {
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.grey[400],
       ),
-    );
-  }
-}
-
-class NewsScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        NewsCard(
-          title: 'Фестиваль "Art.Палитра открыт!"',
-          description: 'Узнать больше...',
-          imagePath: 'assets/opening.PNG', // Replace with the actual image path
-          onPressed: () {
-            // Add your navigation logic or action here
-            print('Tapped on Flutter News');
-          },
-        ),
-        NewsCard(
-          title: 'I Международный многожанровый фестиваль-конкурс исполнительского мастерства "Art.Палитра", направление "Хореография"',
-          description: 'Узнать больше...',
-          imagePath: 'assets/dance.PNG', // Replace with the actual image path
-          onPressed: () {
-            // Add your navigation logic or action here
-            print('Tapped on Dart News');
-          },
-        ),
-        // Add more NewsCard widgets as needed
-      ],
-    );
-  }
-}
-
-class MasterclassesScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        MasterclassCard(
-          title: 'Мастер-класс по современному танцу 10:00',
-          teacherInfo: 'Преподаватель: Богатырева Анастасия',
-          imagePath: 'assets/dance_class.PNG', // Replace with the actual image path
-          onSignUpPressed: () {
-            // Add your sign-up logic or action here
-            print('Signed up for Flutter Masterclass');
-          },
-        ),
-        MasterclassCard(
-          title: 'Мастер-класс "Музыкальный менеджмент" 10:00',
-          teacherInfo: 'Преподаватели: Станислав Топоров, Певица IDA',
-          imagePath: 'assets/music_class.PNG', // Replace with the actual image path
-          onSignUpPressed: () {
-            // Add your sign-up logic or action here
-            print('Signed up for Dart Masterclass');
-          },
-        ),
-        // Add more MasterclassCard widgets as needed
-      ],
     );
   }
 }

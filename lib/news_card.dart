@@ -1,5 +1,34 @@
 import 'package:flutter/material.dart';
 
+class NewsScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      children: [
+        NewsCard(
+          title: 'Фестиваль "Art.Палитра открыт!"',
+          description: 'Узнать больше...',
+          imagePath: 'assets/opening.png', // Replace with the actual image path
+          onPressed: () {
+            // Add your navigation logic or action here
+            print('Tapped on Flutter News');
+          },
+        ),
+        NewsCard(
+          title: 'I Международный многожанровый фестиваль-конкурс исполнительского мастерства "Art.Палитра", направление "Хореография"',
+          description: 'Узнать больше...',
+          imagePath: 'assets/dance.png', // Replace with the actual image path
+          onPressed: () {
+            // Add your navigation logic or action here
+            print('Tapped on Dart News');
+          },
+        ),
+        // Add more NewsCard widgets as needed
+      ],
+    );
+  }
+}
+
 class NewsCard extends StatelessWidget {
   final String title;
   final String description;
